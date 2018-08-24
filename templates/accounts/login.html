@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content%}
+<section id="django">
+        <div class="container" style="margin-top: 100px;margin-bottom: 100px;">
+            <div class=" flex-column">
+                <h1 class="animated fadeIn color_div">{{ title }}</h1>
+            </div>
+              <div class="row">
+                  <div class="col-md-5"> 
+                      <form class="form form-horizontal" action="{% url 'accounts:login_page' %}" method="POST">
+                      {% csrf_token %}
+                         {{ form }}
+                          <input type="submit" value="Login"  style="background-color:#31bcd4 !important" class="login_btn">                                 
+                          <a href="{% url 'accounts:register_page' %}" class="register_btn">Register</a>                                 
+                      </form> 
+                  </div>
+              </div>
+          </div>
+    </section>
+
+{% endblock %}

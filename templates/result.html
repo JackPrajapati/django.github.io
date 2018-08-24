@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+	{% block content %}
+	<section id="django">
+    <div class="container" style="margin-top: 100px;margin-bottom: 100px;">
+        {% if q %}
+    		<h2 class="animated fadeIn mb-3"> {{ title }}{{ q }} </strong> </h2>
+        {% else %}
+        <h2 class="animated fadeIn mb-3"> {{ title }}</strong> </h2>
+      	{% endif %}
+                    <div class="row product_list">
+                        <!--Subheading-->
+                    	{% if result  %}    
+                    	{% for obj in result %}
+                        <div class="col-md-4">
+
+                          <!-- Card Wider -->
+                          <div class="fadeIn card card-cascade mb-4">
+
+                            <!-- Card image -->
+                            <div class="view view-cascade overlay album_art">
+                                <img class="fadeIn card-img-top img-thumbnail" src="{{ obj.image.url }}" alt="Card image cap">
+                            </div>
+
+                              <div class="card-body card-body-cascade text-center">
+
+                              <!-- Title -->
+                              <h4 class="card-title fadeIn"><strong>
+                                  {{ obj.title }}</strong>
+                              </h4>
+                              <!-- Text -->
+                              <p class="card-text fadeIn">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae. Facere modi sunt, quod quibusdam.
+                              </p>
+
+                              <!-- Facebook -->
+                              <a type="button" href="{% url 'products:product_details' obj.id %}" class="btn btn-cyan waves-effect waves-light"><i class="fa fa-eye my_btn"></i></a>
+                              <!-- Twitter -->
+                              <a type="button" href="{% url 'products:product_details' obj.id %}" class="btn btn-cyan waves-effect waves-light"><i class="fa fa-trash my_btn"></i></a>
+                              <!-- Google + -->
+                              <a type="button" href="{% url 'products:product_details' obj.id %}" class="btn btn-cyan waves-effect waves-light"><i class="fa fa-star-o my_btn"></i></a>
+
+                             </div>
+                          </div>
+                        </div>
+                	     {% endfor %}
+                    </div>
+					{% endif %}
+				</div>
+			</section>
+    	}
+	{% endblock %}

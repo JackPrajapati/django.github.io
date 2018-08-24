@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+{% load staticfiles %}
+{% if user.is_authenticated %}
+    {% block content %}
+
+    <!--Django Django Django Django -->
+    <section id="django">
+        <div class="container" style="margin-top: 100px;margin-bottom: 100px;"
+>            <div class=" flex-column">
+                <h1 class="animated fadeIn color_div">{{ title }}</h1>
+                <h5 class="animated fadeIn mb-3">{{ request.user.username }} </h5>
+					
+					<strong>{{ qs.title }} details.</strong>
+					<br/>
+					{{ qs.title }} > {{ qs.description }} > {{ qs.price}} $ 
+					</br>
+					<img style="height: 300px;" src="{{ qs.image.url }}" 
+					alt="{{ qs.title }}">
+
+            </div>
+                
+        </div>
+    </section>
+    {% endblock %}
+{% endif %}
