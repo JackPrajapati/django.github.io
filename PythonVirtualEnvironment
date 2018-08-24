@@ -1,0 +1,101 @@
+jayesh@jayesh:~$ cd 
+.cache/          Downloads/       .mozilla/        Templates/
+.compiz/         .gconf/          Music/           .thunderbird/
+.config/         .gnome/          Pictures/        .tor-browser-en/
+Desktop/         .gnupg/          .pki/            Videos/
+Documents/       .local/          Public/          .vscode/
+jayesh@jayesh:~$ ls
+Desktop           google-chrome-stable_current_amd64.deb  Pictures
+Documents         Music                                   Public
+Downloads         phpdefault.txt                          Templates
+examples.desktop  php.sh                                  Videos
+jayesh@jayesh:~$ cd desktop
+bash: cd: desktop: No such file or directory
+jayesh@jayesh:~$ cd Desktop
+jayesh@jayesh:~/Desktop$ ls
+Mython  Untitled Folder  Work-master.zip
+jayesh@jayesh:~/Desktop$ cd Mython
+jayesh@jayesh:~/Desktop/Mython$ mkdir firstPythonApp
+jayesh@jayesh:~/Desktop/Mython$ cd firstPythonApp
+jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ virtualenv firstEnv
+New python executable in /home/jayesh/Desktop/Mython/firstPythonApp/firstEnv/bin/python
+Installing setuptools, pip, wheel...done.
+jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ source firstPythonApp
+bash: firstPythonApp: No such file or directory
+jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ source firstPythonApp/bin/activate
+bash: firstPythonApp/bin/activate: No such file or directory
+jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ source firstEnv/bin/activate
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ pip install django
+Collecting django
+  Downloading https://files.pythonhosted.org/packages/bf/e0/e659df5b5b82299fffd8b3df2910c99351b9308b8f45f5702cc4cdf946e9/Django-1.11.14-py2.py3-none-any.whl (7.0MB)
+    100% |████████████████████████████████| 7.0MB 454kB/s 
+Collecting pytz (from django)
+  Downloading https://files.pythonhosted.org/packages/30/4e/27c34b62430286c6d59177a0842ed90dc789ce5d1ed740887653b898779a/pytz-2018.5-py2.py3-none-any.whl (510kB)
+    100% |████████████████████████████████| 512kB 569kB/s 
+Installing collected packages: pytz, django
+Successfully installed django-1.11.14 pytz-2018.5
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ django-admin --version
+1.11.14
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ django-admin startproject firstProject
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp$ cd firstProject
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject$ django-admin startproject firstProject .
+CommandError: /home/jayesh/Desktop/Mython/firstPythonApp/firstProject/manage.py already exists, overlaying a project or app into an existing directory won't replace conflicting files
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying sessions.0001_initial... OK
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject$ python manage.py createsuperuser
+Username (leave blank to use 'jayesh'): 
+Email address: prajayesh11@mail.com
+Password: 
+Password (again): 
+Error: Your passwords didn't match.
+Password: 
+Password (again): 
+Superuser created successfully.
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject$ nano settings.py
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject$ cd firstProject/
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject/firstProject$ nano settings.py
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject/firstProject$ python manage.py runserver 172.10.29.32:8000
+python: can't open file 'manage.py': [Errno 2] No such file or directory
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject/firstProject$ python manage.py runserver 0.0.0.0:8000
+python: can't open file 'manage.py': [Errno 2] No such file or directory
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject/firstProject$ cd ../
+(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProject$ python manage.py runserver 0.0.0.0:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 30, 2018 - 09:57:00
+Django version 1.11.14, using settings 'firstProject.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add u'0.0.0.0' to ALLOWED_HOSTS.
+[30/Jul/2018 09:57:39] "GET / HTTP/1.1" 400 67586
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add u'0.0.0.0' to ALLOWED_HOSTS.
+[30/Jul/2018 09:57:39] "GET /favicon.ico HTTP/1.1" 400 67662
+^C(firstEnv) jayesh@jayesh:~/Desktop/Mython/firstPythonApp/firstProjectpython manage.py runserver 172.10.29.32:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 30, 2018 - 09:58:40
+Django version 1.11.14, using settings 'firstProject.settings'
+Starting development server at http://172.10.29.32:8000/
+Quit the server with CONTROL-C.
+[30/Jul/2018 09:58:50] "GET / HTTP/1.1" 200 1716
+Not Found: /favicon.ico
+[30/Jul/2018 09:58:50] "GET /favicon.ico HTTP/1.1" 404 1971
+
+
